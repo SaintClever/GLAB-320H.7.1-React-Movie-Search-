@@ -1,5 +1,3 @@
-import {useState, useEffect} from "react";
-
 export default function MovieDisplay({ movie }){
   // Function to return loaded JSX
   const loaded = () => {

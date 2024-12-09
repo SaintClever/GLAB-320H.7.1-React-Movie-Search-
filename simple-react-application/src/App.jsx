@@ -8,13 +8,17 @@ export default function App() {
 
   const [movie, setMovie] = useState(null);
 
-  const getMovie = async (searchTerm) => {
-    const response = await fetch(
-      `http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`
-    );
-    const data = await response.json();
-    setMovie(data);
-  };
+  const getMovie = async(searchTerm) => {
+    try {
+      const response = await fetch(
+        `http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`
+      );
+      const data = await response.json();
+      setMovie(data);
+    } catch(e) {
+      console.error(e)
+    }
+  }
 
   // This will run on the first render but not on subsquent renders
   useEffect(() => {
